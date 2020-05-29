@@ -25,4 +25,11 @@ How will this be executed? Here is one possible mechanism, which requires some c
 blockchain engine, but it is nevertheless cool as a concept. Currently, there are some mandatory state changes that
 each block has to do regardless of whether it has any transactions or not. It needs to correctly reward the miner and
 the miners of the uncles. There could be other mandatory things added to that, like reactions to events, in the order
-of their appearance. Reacting on 
+of their appearance.
+
+Storing gas at point point of time and releasing it at another means that the miner who processes the transaction
+that stores gas, should not get paid ETH for the gas that is stored, but rather ETH gets "locked up". Then, at later
+time, when the gas gets released, and the computation actually occurs with some resulting State changes, the miner
+that processes that release, computation, and the State change needs to be given all or part of ETH that has been
+paid for the stored gas. To make this fair, we would need to ensure that the ETH/gas (gas price) ratio paid for
+storing up gas is the same as the ETH/gas ratio used to pay the miner for the released gas. 
